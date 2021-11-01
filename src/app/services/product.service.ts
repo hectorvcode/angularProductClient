@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 
 import { Observable } from 'rxjs'
 import { Product } from '../interfaces/product';
+import { BackResponse } from '../interfaces/backresponse.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.BASE_URL}/product`);
+  getProducts(): Observable<BackResponse<Product[]>>{
+    return this.http.get<BackResponse<Product[]>>(`${this.BASE_URL}/product`);
   }
 
   getProduct(id: string): Observable<Product>{

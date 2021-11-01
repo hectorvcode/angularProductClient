@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackResponse } from 'src/app/interfaces/backresponse.interface';
 import { Product } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -22,7 +23,7 @@ export class ProductListComponent implements OnInit {
   getProducts(): void {
     this.productService.getProducts()
       .subscribe(
-        res => this.products = res,
+        (res:BackResponse<Product[]>) => this.products = res.data,
         err => console.log(err)
       )
   }

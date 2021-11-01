@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductFormComponent implements OnInit {
 
   product: Product = {
+    _id:'',
     name:'',
     description:'',
     imageURL:'',
